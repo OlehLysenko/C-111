@@ -31,20 +31,73 @@ namespace RGame
                     break;
             }
             Weapon sword = new Weapon();
-            int sword_hit = sword.attack(6, 1);
+            int sword_hit = sword.damage(10, 1);
             Weapon bow = new Weapon();
-            int bow_hit = bow.attack(7, 1);
+            int bow_hit = bow.damage(9, 1);
             Weapon axe = new Weapon();
-            int axe_hit = axe.attack(8, 1);
+            int axe_hit = axe.damage(11, 1);
             Weapon dagger = new Weapon();
-            int dagger_hit = dagger.attack(4, 2);
+            int dagger_hit = dagger.damage(5, 2);
             Weapon pistol = new Weapon();
-            int pistol_hil = pistol.attack(4, 2);
-            Console.WriteLine("Выбери себе оружие: \n Меч - {0} \n Лук - {1}\n Топор - {2}\n Кинжалы - {3} \n Пистолеты - {4}", 
+            int pistol_hit = pistol.damage(5, 2);
+
+            Console.WriteLine("\tМеч - {0} \n\tЛук - {1}\n\tТопор - {2}\n\tКинжалы - {3} \n\tПистолеты - {4}", 
                 sword.info(), bow.info(), axe.info(), dagger.info(), pistol.info());
+            Console.Write("Выбери оружие: ");
             string weapon = Convert.ToString(Console.ReadLine());
+
             Enemy orc = new Enemy();
             int orc_hp = orc.setValues(100);
+                        
+            
+            while (orc_hp>0)
+            { 
+                switch (weapon)
+                {
+                    case ("Меч"):
+                        Console.WriteLine("Наносим удар мечом.");
+                        orc_hp = orc_hp-sword_hit;
+                        Console.WriteLine("Здоровье орка: " + orc_hp);
+                        break;
+                    case ("Лук"):
+                        Console.WriteLine("Наносим удар луком.");
+                        orc_hp = orc_hp - bow_hit;
+                        Console.WriteLine("Здоровье орка: " + orc_hp);
+                        break;
+                    case ("Топор"):
+                        Console.WriteLine("Наносим удар топором. ");
+                        orc_hp = orc_hp - axe_hit;
+                        Console.WriteLine("Здоровье орка: " + orc_hp);
+                        break;
+                    case ("Кинжалы"):
+                        Console.WriteLine("Наносим удар кинжалами.");
+                        orc_hp = orc_hp - dagger_hit;
+                        Console.WriteLine("Здоровье орка: " + orc_hp);
+                        break;
+                    case ("Пистолеты"):
+                        Console.WriteLine("Наносим удар пистолетами. ");
+                        orc_hp = orc_hp - pistol_hit;
+                        Console.WriteLine("Здоровье орка: " + orc_hp);
+                        break;
+                    default:
+                        Console.WriteLine("Ошибка при вводе. Наносим удар мечом: " );
+                        orc_hp = orc_hp - pistol_hit;
+                        Console.WriteLine("Здоровье орка: " + orc_hp);
+                        break;
+                }
+                if (orc_hp > 0)
+                {
+                    Console.Write("Выбери оружие: ");
+                    weapon = Convert.ToString(Console.ReadLine());
+                }
+                else if (orc_hp < 0 || orc_hp == 0)
+                {
+                    Console.WriteLine("Вы поберили орка!");
+                }
+                    
+               
+
+            }
             Console.ReadKey();
 
 
