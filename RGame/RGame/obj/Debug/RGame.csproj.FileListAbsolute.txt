@@ -1,0 +1,6 @@
+D:\C#111\RGame\RGame\bin\Debug\RGame.exe
+D:\C#111\RGame\RGame\bin\Debug\RGame.pdb
+D:\C#111\RGame\RGame\obj\Debug\RGame.csprojAssemblyReference.cache
+D:\C#111\RGame\RGame\obj\Debug\RGame.csproj.CoreCompileInputs.cache
+D:\C#111\RGame\RGame\obj\Debug\RGame.exe
+D:\C#111\RGame\RGame\obj\Debug\RGame.pdb
